@@ -9,8 +9,7 @@ on:
         required: true
 
 jobs:
-
- testhardcoded1:
+  testhardcoded1:
     # environment: environment_mlcb_test_param
     steps:
       - name: Print testvar
