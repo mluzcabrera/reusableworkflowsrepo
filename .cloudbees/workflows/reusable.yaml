@@ -43,7 +43,7 @@ jobs:
   #         echo "testvar: ${{ secrets.testsec }}"
 
   testparamenv:
-    environment: ${{ inputs.targetenv }}
+    # environment: ${{ inputs.targetenv }}
     steps:
       - name: Print env
         uses: docker://golang:1.20.3-alpine3.17
