@@ -20,33 +20,33 @@ jobs:
           echo " do I get the approval ?"
 
   
-  testhardcoded:
-    environment: environment_mlcb_test_param
-    steps:
-      - name: Print testvar
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testvar: ${{ vars.testvar }}"
-      - name: Print testsec
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testvar: ${{ secrets.testsec }}"
+  # testhardcoded:
+  #   environment: environment_mlcb_test_param
+  #   steps:
+  #     - name: Print testvar
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testvar: ${{ vars.testvar }}"
+  #     - name: Print testsec
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testvar: ${{ secrets.testsec }}"
 
-  testparamenv:
-    environment: ${{ inputs.targetenv }}
-    steps:
-      - name: Print testvar
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testvar: ${{ vars.testvar }}"
-      - name: Print testsec
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testvar: ${{ secrets.testsec }}"
+  # testparamenv:
+  #   environment: ${{ inputs.targetenv }}
+  #   steps:
+  #     - name: Print testvar
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testvar: ${{ vars.testvar }}"
+  #     - name: Print testsec
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testvar: ${{ secrets.testsec }}"
 
 
     
