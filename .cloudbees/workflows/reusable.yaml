@@ -9,8 +9,17 @@ on:
         required: true
 
 jobs:
-  testhardcoded1:
-    environment: environment_mlcb_test_param
+  # testhardcoded1:
+  #   environment: environment_mlcb_test_param
+  #   steps:
+  #     - name: Print testvar
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo " do I get the approval ?"
+
+  testparamenv1:
+    environment: ${{ inputs.targetenv }}
     steps:
       - name: Print testvar
         uses: docker://golang:1.20.3-alpine3.17
