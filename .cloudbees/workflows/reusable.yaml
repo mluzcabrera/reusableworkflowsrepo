@@ -7,6 +7,10 @@ on:
       targetenv:
         type: string
         required: false
+    secrets:
+      testsec:
+        type: string
+        required: false
 
 jobs:
   # testhardcoded1:
