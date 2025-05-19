@@ -9,7 +9,6 @@ on:
         required: false
     secrets:
       testsec:
-        type: string
         required: false
 
 jobs:
