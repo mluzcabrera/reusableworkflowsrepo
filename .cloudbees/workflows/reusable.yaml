@@ -6,7 +6,8 @@ on:
     inputs:
       targetenv:
         type: string
-        required: false
+        required: true
+        default: ""
     secrets:
       testsec2:
         required: false
