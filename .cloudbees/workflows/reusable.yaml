@@ -63,6 +63,11 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
+          echo "testsec: ${{ secrets.testsec }} and hardcode ????"
+      - name: Print testsec2
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
           echo "testsec2: ${{ secrets.testsec2 }} and hardcode ????"
 
 
