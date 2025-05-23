@@ -8,7 +8,7 @@ on:
         type: string
         required: false
     secrets:
-      testsec:
+      testsec2:
         required: false
 
 jobs:
@@ -58,11 +58,11 @@ jobs:
         shell: sh
         run: |
           echo "testvar: ${{ vars.testvar }}"
-      - name: Print testsec
+      - name: Print testsec2
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "testsec: ${{ secrets.testsec }} and hardcode ????"
+          echo "testsec2: ${{ secrets.testsec2 }} and hardcode ????"
 
 
     
