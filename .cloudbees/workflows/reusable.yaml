@@ -26,8 +26,22 @@ jobs:
         run: |
           echo "testsec: ${{ secrets.testsec }}"
 
-  testinheritance_env:
+  testinheritance_env_hardcoded:
     environment: environment_mlcb_test_param
+    steps:
+      - name: Print testvar in environment (inherited)
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "testvar: ${{ vars.testvar }}"
+      - name: Print testsec in environment (inherited)
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "testsec: ${{ secrets.testsec }}"
+
+  testinheritance_env_hardcoded:
+    environment: environment_mlcb_test_WRONG
     steps:
       - name: Print testvar in environment (inherited)
         uses: docker://golang:1.20.3-alpine3.17
