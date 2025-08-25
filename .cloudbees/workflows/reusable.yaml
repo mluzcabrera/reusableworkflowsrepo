@@ -40,8 +40,24 @@ jobs:
         run: |
           echo "testsec: ${{ secrets.testsec }}"
 
+  # This should fail as the environment does not exist
+  # testinheritance_env_hardcoded_wrong:
+  #   environment: environment_mlcb_test_WRONG
+  #   steps:
+  #     - name: Print testvar in environment (inherited)
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testvar: ${{ vars.testvar }}"
+  #     - name: Print testsec in environment (inherited)
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testsec: ${{ secrets.testsec }}"
+
+  # This should fail if the environment passed as param does not exist, but work if environment is environment_mlcb_test_param
   testinheritance_env_hardcoded_wrong:
-    environment: environment_mlcb_test_WRONG
+    environment: ${{ inputs.targetenv }}
     steps:
       - name: Print testvar in environment (inherited)
         uses: docker://golang:1.20.3-alpine3.17
