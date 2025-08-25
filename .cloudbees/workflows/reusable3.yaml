@@ -6,8 +6,7 @@ on:
     inputs:
       targetenv:
         type: string
-      testvar:
-        type: string        
+     
     secrets:
       testsec:
         required: false
@@ -71,7 +70,7 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "testsec: ${{ secrets.testsec }}"
+          echo "testsec: ${{ secrets.testsec }} is this masked? hardcode"
 
   # This fails (orange banner) as the environment is null, but the problem is that the orange banner is cleared if another wf runs successfully
   # testinheritance_env_null:
