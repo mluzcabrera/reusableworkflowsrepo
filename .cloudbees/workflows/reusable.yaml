@@ -8,11 +8,25 @@ on:
         type: string
         required: true
         default: ""
-    secrets:
-      testsec2:
-        required: false
+    # secrets:
+    #   testsec2:
+    #     required: false
 
 jobs:
+  testinheritance_noenv:
+    steps:
+      - name: Print testvar in component (inherited)
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "testvar: ${{ vars.testvar }}"
+      - name: Print testsec in component (inherited)
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "testsec: ${{ secrets.testsec }}"
+    
+
   # testhardcoded1:
   #   environment: environment_mlcb_test_param
   #   steps:
@@ -46,29 +60,29 @@ jobs:
   #       run: |
   #         echo "testvar: ${{ secrets.testsec }}"
 
-  testparamenv:
-    environment: ${{ inputs.targetenv }}
-    steps:
-      - name: Print env
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "environment: ${{ inputs.targetenv }}"
-      - name: Print testvar
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testvar: ${{ vars.testvar }}"
-      - name: Print testsec2
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testsec: ${{ secrets.testsec }} and hardcode ????"
-      - name: Print testsec2
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testsec2: ${{ secrets.testsec2 }} and hardcode ????"
+  # testparamenv:
+  #   environment: ${{ inputs.targetenv }}
+  #   steps:
+  #     - name: Print env
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "environment: ${{ inputs.targetenv }}"
+  #     - name: Print testvar
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testvar: ${{ vars.testvar }}"
+  #     - name: Print testsec2
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testsec: ${{ secrets.testsec }} and hardcode ????"
+  #     - name: Print testsec2
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testsec2: ${{ secrets.testsec2 }} and hardcode ????"
 
 
     
