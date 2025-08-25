@@ -70,7 +70,7 @@ jobs:
           echo "testsec: ${{ secrets.testsec }}"
 
   testinheritance_env_null:
-    environment: null
+    environment: "null"
     steps:
       - name: Print testvar in environment (inherited)
         uses: docker://golang:1.20.3-alpine3.17
