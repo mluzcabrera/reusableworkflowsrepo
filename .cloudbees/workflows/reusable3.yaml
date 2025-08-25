@@ -5,16 +5,12 @@ on:
   workflow_call:
     inputs:
       targetenv:
-        type: string
-     
+        type: string     
     secrets:
       testsec:
         required: false
 
 jobs:
-
-
-
   # This should fail if the environment passed as param does not exist, but work if environment is environment_mlcb_test_param
   testinheritance_env_param:
     environment: ${{ inputs.targetenv }}
