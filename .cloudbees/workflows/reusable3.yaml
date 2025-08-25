@@ -7,11 +7,10 @@ on:
       targetenv:
         type: string
       testvar:
+        type: string        
+    secrets:
+      testsec:
         type: string
-        
-    # secrets:
-    #   testsec2:
-    #     required: false
 
 jobs:
 
