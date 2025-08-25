@@ -56,7 +56,7 @@ jobs:
   #         echo "testsec: ${{ secrets.testsec }}"
 
   # This should fail if the environment passed as param does not exist, but work if environment is environment_mlcb_test_param
-  testinheritance_env_hardcoded_wrong:
+  testinheritance_env_param:
     environment: ${{ inputs.targetenv }}
     steps:
       - name: Print testvar in environment (inherited)
