@@ -40,7 +40,7 @@ jobs:
         run: |
           echo "testsec: ${{ secrets.testsec }}"
 
-  testinheritance_env_hardcoded:
+  testinheritance_env_hardcoded_wrong:
     environment: environment_mlcb_test_WRONG
     steps:
       - name: Print testvar in environment (inherited)
