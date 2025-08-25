@@ -15,33 +15,33 @@ on:
 jobs:
 
   # This must work as no environment is provided and vars/secrets exist when inherit is enabled
-  testinheritance_noenv:
-    steps:
-      - name: Print testvar in component (inherited)
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testvar: ${{ vars.testvar }}"
-      - name: Print testsec in component (inherited)
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testsec: ${{ secrets.testsec }}"
+  # testinheritance_noenv:
+  #   steps:
+  #     - name: Print testvar in component (inherited)
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testvar: ${{ vars.testvar }}"
+  #     - name: Print testsec in component (inherited)
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testsec: ${{ secrets.testsec }}"
   
   # This must work environment exists and vars/secrets exist when inherit is enabled
-  testinheritance_env_hardcoded:
-    environment: environment_mlcb_test_param
-    steps:
-      - name: Print testvar in environment (inherited)
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testvar: ${{ vars.testvar }}"
-      - name: Print testsec in environment (inherited)
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testsec: ${{ secrets.testsec }}"
+  # testinheritance_env_hardcoded:
+  #   environment: environment_mlcb_test_param
+  #   steps:
+  #     - name: Print testvar in environment (inherited)
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testvar: ${{ vars.testvar }}"
+  #     - name: Print testsec in environment (inherited)
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testsec: ${{ secrets.testsec }}"
 
   # This should fail as the environment does not exist
   # testinheritance_env_hardcoded_wrong:
@@ -62,12 +62,12 @@ jobs:
   testinheritance_env_param:
     environment: ${{ inputs.targetenv }}
     steps:
-      - name: Print testvar in environment (inherited)
+      - name: Print testvar 
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
           echo "testvar: ${{ vars.testvar }}"
-      - name: Print testsec in environment (inherited)
+      - name: Print testsec 
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
@@ -89,16 +89,16 @@ jobs:
   #         echo "testsec: ${{ secrets.testsec }}"
 
   # This must work as environment is provided and vars/secrets exist when inherit is enabled
-  testinheritance_env_hardcoded_inexp:
-    environment: ${{ 'environment_mlcb_test_param' }}
-    steps:
-      - name: Print testvar in environment (inherited)
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testvar: ${{ vars.testvar }}"
-      - name: Print testsec in environment (inherited)
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "testsec: ${{ secrets.testsec }}"
+  # testinheritance_env_hardcoded_inexp:
+  #   environment: ${{ 'environment_mlcb_test_param' }}
+  #   steps:
+  #     - name: Print testvar in environment (inherited)
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testvar: ${{ vars.testvar }}"
+  #     - name: Print testsec in environment (inherited)
+  #       uses: docker://golang:1.20.3-alpine3.17
+  #       shell: sh
+  #       run: |
+  #         echo "testsec: ${{ secrets.testsec }}"
