@@ -40,7 +40,7 @@ jobs:
         run: |
           echo "testsec: ${{ secrets.testsec }}"
 
-  This should fail as the environment does not exist
+  # This should fail as the environment does not exist
   testinheritance_env_hardcoded_wrong:
     environment: environment_mlcb_test_WRONG
     steps:
