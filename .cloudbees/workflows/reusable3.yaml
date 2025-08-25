@@ -10,7 +10,7 @@ on:
         type: string        
     secrets:
       testsec:
-        type: string
+        required: false
 
 jobs:
 
