@@ -1,0 +1,17 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: reusable
+on:
+  workflow_call:
+    inputs:
+      targetenv:
+        type: string
+
+jobs:
+  call-l1:
+    uses: mluzcabrera/reusableworkflowsrepo/.cloudbees/workflows/l1-reusable.yaml
+    vars: inherit
+    secrets: inherit
+    with:
+      targetenv: ${{ inputs.targetenv }}
+    
