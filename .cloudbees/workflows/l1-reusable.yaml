@@ -8,7 +8,7 @@ on:
         type: string
 
 jobs:
-  call-l1:
+  call-l0:
     uses: mluzcabrera/reusableworkflowsrepo/.cloudbees/workflows/l0-reusable.yaml
     vars: inherit
     secrets: inherit
