@@ -8,9 +8,16 @@ on:
         type: string
 
 jobs:
-  call-l1:
-    uses: mluzcabrera/reusableworkflowsrepo/.cloudbees/workflows/l0-reusable.yaml
-    vars: inherit
-    secrets: inherit
-    with:
-      targetenv: ${{ inputs.targetenv }}
+  testinheritance_env_param:
+    environment: ${{ inputs.targetenv }}
+    steps:
+      - name: Print testvar in environment (inherited)
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "testvar: ${{ vars.testvar }}"
+      - name: Print testsec in environment (inherited)
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "testsec: ${{ secrets.testsec }}"
