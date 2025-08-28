@@ -11,6 +11,8 @@ jobs:
 
   testinheritance_checkout:
     steps:
-      - name: checkout
+      - name: use action
         uses: cloudbees-io/checkout@v1
+      - name: use preconf-action
+        uses: mlcb_checkout
   
