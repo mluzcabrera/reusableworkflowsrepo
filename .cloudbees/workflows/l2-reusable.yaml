@@ -10,8 +10,8 @@ on:
 jobs:
   call-l1:
     uses: mluzcabrera/reusableworkflowsrepo/.cloudbees/workflows/l1-reusable.yaml
-    # vars: inherit
-    # secrets: inherit
+    vars: inherit
+    secrets: inherit
     with:
       targetenv: ${{ inputs.targetenv }}
     
